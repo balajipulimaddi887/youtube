@@ -6,7 +6,7 @@ const VideoShimmer = () => {
       {Array(15)
         .fill(" ")
         .map((e, i) => (
-          <div key={i} className="h-72 w-64 bg-gray-100 m-2"></div>
+          <div key={i} className="h-72 w-80 bg-gray-300 m-2"></div>
         ))}
     </div>
   );

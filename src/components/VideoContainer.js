@@ -17,11 +17,11 @@ const VideoContainer = () => {
     setVideosList(json?.items);
   };
 
-  if (videosList.length === 0) return <VideoShimmer />;
+  if (videosList?.length < 1) return <VideoShimmer />;
 
   return (
-    <div className="flex p-5 flex-wrap justify-center">
-      {videosList.map((video) => (
+    <div className="flex p-5 flex-wrap justify-center overflow-auto h-[78vh]">
+      {videosList?.map((video) => (
         <Link to={"/watch?v=" + video?.id} key={video?.id}>
           <VideoCard video={video} />
         </Link>

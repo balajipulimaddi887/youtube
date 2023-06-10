@@ -19,7 +19,7 @@ const buttonList = [
 
 const ButtonList = () => {
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="flex flex-nowrap px-3 m-auto overflow-x-auto whitespace-nowrap w-[90vw]">
       {buttonList.map((text, i) => (
         <Button key={i} text={text} />
       ))}

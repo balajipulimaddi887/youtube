@@ -10,19 +10,23 @@ const calculateViewCount = (count) => {
   }
 };
 
-const VideoCard = ({ video }) => {
+const SearchVideo = ({ video }) => {
   const { snippet, statistics } = video;
   const { channelTitle, title, thumbnails } = snippet;
   return (
-    <div className="shadow-lg m-2 w-80 rounded-lg pb-2">
+    <div className="shadow-lg w-4/5 md:w-3/4 flex mb-3 rounded-lg m-auto border border-gray-500">
       <img
         src={thumbnails?.medium?.url}
         alt="thumbnail"
-        className="rounded-lg w-full"
+        className="rounded-l-lg w-36 md:w-64 lg:w-80 max-h-[200px]"
       />
-      <div className="p-2">
-        <h1 className="font-bold text-base line-clamp-2">{title}</h1>
-        <h2 className="font-medium">{channelTitle}</h2>
+      <div className="mx-3">
+        <h1 className="font-bold text-lg lg:text-2xl line-clamp-4 sm:line-clamp-3 md:line-clamp-2">
+          {title}
+        </h1>
+        <h2 className="font-medium text-base sm:text-lg lg:text-xl">
+          {channelTitle}
+        </h2>
         {statistics?.viewCount && (
           <h3>{calculateViewCount(statistics?.viewCount)} views</h3>
         )}
@@ -31,4 +35,4 @@ const VideoCard = ({ video }) => {
   );
 };
 
-export default VideoCard;
+export default SearchVideo;

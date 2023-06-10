@@ -10,17 +10,17 @@ const calculateViewCount = (count) => {
   }
 };
 
-const VideoCard = ({ video }) => {
+const RelatedVideoCard = ({ video }) => {
   const { snippet, statistics } = video;
   const { channelTitle, title, thumbnails } = snippet;
   return (
-    <div className="shadow-lg m-2 w-80 rounded-lg pb-2">
+    <div className="shadow-lg w-full flex rounded-sm mb-2">
       <img
         src={thumbnails?.medium?.url}
         alt="thumbnail"
-        className="rounded-lg w-full"
+        className="rounded-l-lg h-28 lg:w-36 xl:w-48"
       />
-      <div className="p-2">
+      <div className="ml-1 xl:ml-2">
         <h1 className="font-bold text-base line-clamp-2">{title}</h1>
         <h2 className="font-medium">{channelTitle}</h2>
         {statistics?.viewCount && (
@@ -31,4 +31,4 @@ const VideoCard = ({ video }) => {
   );
 };
 
-export default VideoCard;
+export default RelatedVideoCard;
