@@ -91,6 +91,12 @@ const VideoDetails = () => {
           ))}
         </div> */}
         <div className="w-11/12 lg:w-full flex flex-col m-5 items-stretch">
+          {relatedVideos?.length < 1 &&
+            Array(10)
+              .fill(" ")
+              .map((e, i) => (
+                <div className="shadow-lg w-full flex rounded-sm mb-2 h-[100px] bg-gray-300"></div>
+              ))}
           {relatedVideos?.length > 0 &&
             relatedVideos.map((e, i) => (
               <Link to={"/watch?v=" + e?.id?.videoId} key={e?.id?.videoId}>

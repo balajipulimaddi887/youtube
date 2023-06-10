@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import { getVideosByKeyword } from "../utils/constants";
 import SearchVideo from "./SearchVideo";
+import SearchVideoShimmer from "./SearchVideoShimmer";
 
 const Search = () => {
   const [searchParams] = useSearchParams();
@@ -20,6 +21,7 @@ const Search = () => {
     setSearchResults(json?.items);
     console.log(json);
   };
+  if (searchResults?.length < 1) return <SearchVideoShimmer />;
   return (
     <div className="w-full flex flex-col overflow-auto h-[86vh]">
       {searchResults?.length > 0 &&
