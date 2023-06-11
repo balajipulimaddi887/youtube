@@ -1,17 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { collapseMenu } from "../utils/appSlice";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  const dispatch = useDispatch();
 
   // early return
   if (!isMenuOpen) return null;
   return (
-    <div className="shadow-lg w-36 sm:w-46 rounded-lg border border-gray-400 p-1 text-lg bg-white mx-3 absolute h-[87vh]">
+    <div className="shadow-lg w-36 sm:w-46 rounded-lg border border-gray-400 p-1 text-lg bg-white mx-3 absolute h-[82vh] lg:h-[86vh]">
       <ul className="border-gray-500 border-b-2 pl-2">
         <li className="my-2">
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={() => dispatch(collapseMenu())}>
+            Home
+          </Link>
         </li>
         <li className="my-2">Shorts</li>
         <li className="my-2">Subscriptions</li>

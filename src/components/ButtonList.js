@@ -19,7 +19,7 @@ const buttonList = [
 
 const ButtonList = () => {
   return (
-    <div className="justify-center m-auto overflow-x-auto whitespace-nowrap w-[80vw] md:w-[90vw]">
+    <div className="justify-center m-auto overflow-x-auto whitespace-nowrap w-[84vw] md:w-[90vw]">
       {buttonList.map((text, i) => (
         <Button key={i} text={text} />
       ))}

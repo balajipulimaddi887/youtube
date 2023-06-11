@@ -125,7 +125,7 @@ const Header = () => {
             className="w-12 h-7 md:h-10 cursor-pointer"
             onClick={() => handleMenu()}
           />
-          <Link to="/">
+          <Link to="/" onClick={() => dispatch(collapseMenu())}>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png"
               alt="youtube logo"
