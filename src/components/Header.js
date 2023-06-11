@@ -35,10 +35,14 @@ const Search = () => {
   };
 
   const fetchSuggestions = async () => {
-    const data = await fetch(YOUTUBE_SUGGESTSIONS_URL + searchQuery);
-    const json = await data.json();
-    setSuggestions(json[1]);
-    dispatch(cacheItems({ [searchQuery]: json[1] }));
+    try {
+      const data = await fetch(YOUTUBE_SUGGESTSIONS_URL + searchQuery);
+      const json = await data.json();
+      setSuggestions(json[1]);
+      dispatch(cacheItems({ [searchQuery]: json[1] }));
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <>

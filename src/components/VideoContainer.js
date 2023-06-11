@@ -3,19 +3,31 @@ import { YOUTUBE_VIDEO_URL } from "../utils/constants";
 import VideoCard from "./VideoCard";
 import VideoShimmer from "./VideoShimmer";
 import { Link } from "react-router-dom";
+import ErrorCard from "./ErrorCard";
 
 const VideoContainer = () => {
   const [videosList, setVideosList] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchYoutubeVidoes();
   }, []);
 
   const fetchYoutubeVidoes = async () => {
-    const data = await fetch(YOUTUBE_VIDEO_URL);
-    const json = await data.json();
-    setVideosList(json?.items);
+    try {
+      const data = await fetch(YOUTUBE_VIDEO_URL);
+      const json = await data.json();
+      if (json?.items) {
+        setVideosList(json?.items);
+      } else if (json?.error?.errors) {
+        setError(json?.error?.errors[0]);
+      }
+    } catch (e) {
+      setError(e);
+    }
   };
+
+  if (error) return <ErrorCard error={error} />;
 
   if (videosList?.length < 1) return <VideoShimmer />;
 

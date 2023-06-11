@@ -4,32 +4,32 @@ import CommentsList from "./CommentsList";
 const commentsList = [
   {
     name: "Balaji",
-    text: "This is the best youtube channel we can have for react",
+    text: "This is react project and you can watch youtube videos here",
     replies: [
       {
         name: "Balaji",
-        text: "This is the best youtube channel we can have for react",
+        text: "This is react project and you can watch youtube videos here",
         replies: [
           {
             name: "Balaji",
-            text: "This is the best youtube channel we can have for react",
+            text: "This is react project and you can watch youtube videos here",
             replies: [],
           },
           {
             name: "Balaji",
-            text: "This is the best youtube channel we can have for react",
+            text: "This is react project and you can watch youtube videos here",
             replies: [
               {
                 name: "Balaji",
-                text: "This is the best youtube channel we can have for react",
+                text: "This is react project and you can watch youtube videos here",
                 replies: [
                   {
                     name: "Balaji",
-                    text: "This is the best youtube channel we can have for react",
+                    text: "This is react project and you can watch youtube videos here",
                     replies: [
                       {
                         name: "Balaji",
-                        text: "This is the best youtube channel we can have for react",
+                        text: "This is react project and you can watch youtube videos here",
                         replies: [],
                       },
                     ],
@@ -38,7 +38,7 @@ const commentsList = [
               },
               {
                 name: "Balaji",
-                text: "This is the best youtube channel we can have for react",
+                text: "This is react project and you can watch youtube videos here",
                 replies: [],
               },
             ],
@@ -47,45 +47,45 @@ const commentsList = [
       },
       {
         name: "Balaji",
-        text: "This is the best youtube channel we can have for react",
+        text: "This is react project and you can watch youtube videos here",
         replies: [],
       },
     ],
   },
   {
     name: "Balaji",
-    text: "This is the best youtube channel we can have for react",
+    text: "This is react project and you can watch youtube videos here",
     replies: [],
   },
   {
     name: "Balaji",
-    text: "This is the best youtube channel we can have for react",
+    text: "This is react project and you can watch youtube videos here",
     replies: [
       {
         name: "Balaji",
-        text: "This is the best youtube channel we can have for react",
+        text: "This is react project and you can watch youtube videos here",
         replies: [],
       },
       {
         name: "Balaji",
-        text: "This is the best youtube channel we can have for react",
+        text: "This is react project and you can watch youtube videos here",
         replies: [],
       },
       {
         name: "Balaji",
-        text: "This is the best youtube channel we can have for react",
+        text: "This is react project and you can watch youtube videos here",
         replies: [],
       },
     ],
   },
   {
     name: "Balaji",
-    text: "This is the best youtube channel we can have for react",
+    text: "This is react project and you can watch youtube videos here",
     replies: [],
   },
   {
     name: "Balaji",
-    text: "This is the best youtube channel we can have for react",
+    text: "This is react project and you can watch youtube videos here",
     replies: [],
   },
 ];

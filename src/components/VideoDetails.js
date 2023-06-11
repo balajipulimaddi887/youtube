@@ -3,16 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { collapseMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import CommentsDetails from "./CommentsDetails";
-import LiveChat from "./LiveChat";
-import { addMessage } from "../utils/liveChatSlice";
-import { randomName } from "../utils/randomData";
+// import LiveChat from "./LiveChat";
+// import { addMessage } from "../utils/liveChatSlice";
+// import { randomName } from "../utils/randomData";
 import { getVideosByVideoId } from "../utils/constants";
 import { Link } from "react-router-dom";
 import RelatedVideoCard from "./RelatedVideoCard";
+import ErrorCard from "./ErrorCard";
 
 const VideoDetails = () => {
   const [searchParams] = useSearchParams();
-  const [chat, setChat] = useState("");
+  const [error, setError] = useState(null);
+  // const [chat, setChat] = useState("");
   const [relatedVideos, setRelatedVideos] = useState([]);
   const dispatch = useDispatch();
   // const details = useSelector((store) => store.chat);
@@ -37,11 +39,20 @@ const VideoDetails = () => {
   }, [searchParams]);
 
   const fetchVideosById = async () => {
-    const data = await fetch(getVideosByVideoId(searchParams.get("v")));
-    const json = await data.json();
-    setRelatedVideos(json?.items);
-    console.log(json);
+    try {
+      const data = await fetch(getVideosByVideoId(searchParams.get("v")));
+      const json = await data.json();
+      if (json?.items) {
+        setRelatedVideos(json?.items);
+      } else if (json?.error?.errors) {
+        setError(json?.error?.errors[0]);
+      }
+    } catch (e) {
+      setError(e);
+    }
   };
+
+  if (error) return <ErrorCard error={error} />;
 
   return (
     <div className="w-screen  overflow-auto h-[86vh]">
@@ -95,7 +106,10 @@ const VideoDetails = () => {
             Array(10)
               .fill(" ")
               .map((e, i) => (
-                <div className="shadow-lg w-full flex rounded-sm mb-2 h-[100px] bg-gray-300"></div>
+                <div
+                  key={i}
+                  className="shadow-lg w-full flex rounded-sm mb-2 h-[100px] bg-gray-300"
+                ></div>
               ))}
           {relatedVideos?.length > 0 &&
             relatedVideos.map((e, i) => (

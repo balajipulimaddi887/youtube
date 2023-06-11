@@ -3,7 +3,7 @@ import Comment from "./Comment";
 
 const CommentsList = ({ commentsList }) => {
   return commentsList.map((data, i) => (
-    <div>
+    <div key={i}>
       <Comment data={data} />
       <div className="ml-5">
         <CommentsList commentsList={data.replies} />
