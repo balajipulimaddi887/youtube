@@ -108,7 +108,7 @@ const VideoDetails = () => {
               .map((e, i) => (
                 <div
                   key={i}
-                  className="shadow-lg w-full flex rounded-sm mb-2 h-[100px] bg-gray-300"
+                  className="shadow-lg w-full flex rounded-sm mb-2 h-[100px] bg-gray-200"
                 ></div>
               ))}
           {relatedVideos?.length > 0 &&
