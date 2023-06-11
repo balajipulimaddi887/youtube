@@ -55,10 +55,10 @@ const VideoDetails = () => {
   if (error) return <ErrorCard error={error} />;
 
   return (
-    <div className="w-screen  overflow-auto h-[86vh]">
-      <div className="flex flex-col lg:flex-row w-full mx-1 lg:mx-0">
+    <div className="w-[95vw] md:w-screen overflow-auto h-[86vh]">
+      <div className="flex flex-col lg:flex-row w-full">
         <div className="flex flex-col ">
-          <div className="p-5 w-full h-[350px] md:h-[500px] lg:w-[680px] xl:w-[800px] 2xl:w-[1000px] lg:h-[500px]">
+          <div className="pl-3 pb-3 lg:p-5 w-full h-[350px] sm:h-[400px] md:w-[90vw] md:h-[500px] lg:w-[720px] xl:w-[800px] 2xl:w-[1000px] lg:h-[500px]">
             <iframe
               width="100%"
               height="100%"
@@ -101,7 +101,7 @@ const VideoDetails = () => {
             <LiveChat key={i} {...e} />
           ))}
         </div> */}
-        <div className="w-11/12 lg:w-full flex flex-col m-5 items-stretch">
+        <div className="w-11/12 lg:w-full flex flex-col ml-3 lg:m-5 items-stretch">
           {relatedVideos?.length < 1 &&
             Array(10)
               .fill(" ")

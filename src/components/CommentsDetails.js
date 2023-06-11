@@ -92,7 +92,7 @@ const commentsList = [
 
 const CommentsDetails = () => {
   return (
-    <div className="lg:p-5">
+    <div className="mb-3 lg:p-5">
       <h1 className="font-bold text-2xl">Comments:</h1>
       <CommentsList commentsList={commentsList} />
     </div>
