@@ -7,7 +7,6 @@ const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
   const dispatch = useDispatch();
   const location = useLocation();
-  console.log(location);
 
   // early return
   if (!isMenuOpen) return null;

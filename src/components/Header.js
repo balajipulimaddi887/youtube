@@ -51,11 +51,16 @@ const Search = () => {
     <>
       <div className="w-full">
         <input
-          type="text"
+          type="search"
           placeholder="Search"
-          className="border border-gray-400 w-1/2 rounded-l-full px-5 py-1"
+          className="border border-gray-400 w-1/2 rounded-l-full pl-5 pr-1 py-1"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyUp={(e) => {
+            if (e.key === "Enter") {
+              navigateToResultsPage(searchQuery);
+            }
+          }}
           onFocus={() => {
             dispatch(collapseMenu());
             setShowSuggestions(true);
