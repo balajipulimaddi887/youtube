@@ -10,7 +10,6 @@ const Search = () => {
   const [searchParams] = useSearchParams();
   const [searchResults, setSearchResults] = useState(null);
   const [error, setError] = useState(null);
-  console.log(searchParams.get("search_query"));
   useEffect(() => {
     fetchSuggestions();
   }, [searchParams]);
@@ -56,7 +55,11 @@ const Search = () => {
     <div className="w-full flex flex-col overflow-auto h-[86vh]">
       {searchResults?.length > 0 &&
         searchResults?.map((e) => (
-          <Link to={"/watch?v=" + e?.id?.videoId} className="w-full">
+          <Link
+            to={"/watch?v=" + e?.id?.videoId}
+            key={e?.id?.videoId}
+            className="w-full"
+          >
             <SearchVideo video={e} />
           </Link>
         ))}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { collapseMenu, toggleMenu } from "../utils/appSlice";
-import { YOUTUBE_SUGGESTSIONS_URL } from "../utils/constants";
+import { CORS_PROXY_URL, YOUTUBE_SUGGESTSIONS_URL } from "../utils/constants";
 import { cacheItems } from "../utils/searchSlice";
 
 const Search = () => {
@@ -36,7 +36,10 @@ const Search = () => {
 
   const fetchSuggestions = async () => {
     try {
-      const data = await fetch(YOUTUBE_SUGGESTSIONS_URL + searchQuery);
+      const url =
+        CORS_PROXY_URL +
+        encodeURIComponent(YOUTUBE_SUGGESTSIONS_URL + searchQuery);
+      const data = await fetch(url);
       const json = await data.json();
       setSuggestions(json[1]);
       dispatch(cacheItems({ [searchQuery]: json[1] }));

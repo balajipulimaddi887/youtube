@@ -7,6 +7,8 @@ export const YOUTUBE_VIDEO_URL =
 export const YOUTUBE_SUGGESTSIONS_URL =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
+export const CORS_PROXY_URL = "https://corsproxy.io/?";
+
 export const getVideosByVideoId = (videoId) =>
   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&relatedToVideoId=" +
   videoId +
